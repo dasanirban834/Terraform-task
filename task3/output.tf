@@ -1,12 +1,12 @@
 output "environment" {
-  value = local.var1-environment
+  value = local.varenvironment
 }
 
 output "os" {
-  value = local.var2-os
+  value = local.varos
 }
 
-output "var" {
-  value = local.var
+output "varcombination" {
+  value = local.varcombination
 }
 
