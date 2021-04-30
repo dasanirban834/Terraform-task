@@ -1,4 +1,10 @@
-resource "azurerm_resource_group" "example" {
-  name     = "rg"-"${local.varcombination}"
-  location = "West US"
+provider "azurerm" {
+  features{}
+}
+
+resource "azurerm_resource_group" "rg" {
+  
+  name = rg -"${local.varcombination}"
+  location = "westus"
+
 }
