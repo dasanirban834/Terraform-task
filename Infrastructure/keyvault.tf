@@ -40,7 +40,7 @@ resource "azurerm_key_vault" "demo_vault" {
 
 resource "azurerm_key_vault_secret" "demo_secret" {
   count        = 3
-  name         = "vmpublic-password-${count.index}"
+  name         = "vm-key"
   value        = file("../private")
   key_vault_id = azurerm_key_vault.demo_vault.id
 }
