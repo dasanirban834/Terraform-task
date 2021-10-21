@@ -7,19 +7,20 @@ resource "aws_instance" "instance" {
   subnet_id       = element(aws_subnet.public_subnet.*.id, count.index)
   security_groups = [aws_security_group.sg.id, ]
   key_name        = "Keypair-01"
+  iam_instance_profile = "${data.aws_iam_role.iam_role.name}"
 
   tags = {
     "Name"        = "Instance-${count.index}"
     "Environment" = "Test"
     "CreatedBy"   = "Terraform"
   }
+  provisioner "file" {
+    source = "~/.ssh/id_rsa.pub"
+    destination  = "/home/ansible/.ssh/id_rsa.pub"
 }
 
-resource "null_resource" "remote_provisioner" {
-  count = length(aws_instance.instance.*.public_dns)
-
   connection {
-    host        = "${element(aws_instance.instance.*.public_ip, count.index)}"
+    host        = "${element(self.*.public_ip, count.index)}"
     type        = "ssh"
     user        = "ec2-user"
     private_key = file(var.pvt_key_path)
@@ -31,11 +32,6 @@ resource "null_resource" "remote_provisioner" {
       "echo 'ansible' | passwd  --stdin ansible",
     ]
   }
-
-  provisioner "file" {
-    source = "~/.ssh/id_rsa.pub"
-    destination  = "/home/ansible/.ssh/id_rsa.pub"
-}
 
   provisioner "local-exec" {
     command    = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook httpd.yml -i aws_ec2.yml --private-key ~/.ssh/id_rsa"
