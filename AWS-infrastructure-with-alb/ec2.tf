@@ -14,6 +14,7 @@ resource "aws_instance" "instance" {
     "Environment" = "Test"
     "CreatedBy"   = "Terraform"
   }
+  
   provisioner "file" {
     source = "~/.ssh/id_rsa.pub"
     destination  = "/home/ansible/.ssh/id_rsa.pub"
