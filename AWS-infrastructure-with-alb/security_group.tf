@@ -14,12 +14,27 @@ locals {
       port        = 22
       description = "Ingress rules for port 22"
   }]
+
 }
 
 resource "aws_security_group" "sg" {
 
-  name   = "CustomSG"
-  vpc_id = aws_vpc.custom_vpc.id
+  name        = "CustomSG"
+  description = "Allow TLS inbound traffic"
+  vpc_id      = aws_vpc.custom_vpc.id
+  egress = [
+    {
+      description      = "for all outgoing traffics"
+      from_port        = 0
+      to_port          = 0
+      protocol         = "-1"
+      cidr_blocks      = ["0.0.0.0/0"]
+      ipv6_cidr_blocks = ["::/0"]
+      prefix_list_ids  = []
+      security_groups  = []
+      self             = false
+    }
+  ]
 
   dynamic "ingress" {
     for_each = local.ingress_rules
@@ -32,8 +47,8 @@ resource "aws_security_group" "sg" {
       cidr_blocks = ["0.0.0.0/0"]
     }
   }
-
   tags = {
     Name = "AWS security group dynamic block"
   }
+
 }

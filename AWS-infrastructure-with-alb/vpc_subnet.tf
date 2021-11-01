@@ -1,5 +1,7 @@
 #############################################
+
 #Creating Virtual Private Cloud:
+
 #############################################
 resource "aws_vpc" "custom_vpc" {
   cidr_block           = var.custom_vpc
@@ -9,7 +11,9 @@ resource "aws_vpc" "custom_vpc" {
 }
 
 #############################################
+
 # Creating Public subnet:
+
 #############################################
 
 resource "aws_subnet" "public_subnet" {
@@ -19,12 +23,14 @@ resource "aws_subnet" "public_subnet" {
   cidr_block        = element(cidrsubnets(var.custom_vpc, 8, 4, 4), count.index)
 
   tags = {
-    "Name" = "Public-Subnet-[count.index]"
+    "Name" = "Public-Subnet-${count.index}"
   }
 }
 
 #############################################
+
 # Creating Internet Gateway:
+
 #############################################
 
 resource "aws_internet_gateway" "igw" {
@@ -36,7 +42,9 @@ resource "aws_internet_gateway" "igw" {
 }
 
 #############################################
+
 # Creating Public Route Table:
+
 #############################################
 resource "aws_route_table" "public_rt" {
   vpc_id = aws_vpc.custom_vpc.id
@@ -47,7 +55,9 @@ resource "aws_route_table" "public_rt" {
 }
 
 #############################################
+
 # Creating Public Route:
+
 #############################################
 
 resource "aws_route" "public_route" {
@@ -57,7 +67,9 @@ resource "aws_route" "public_route" {
 }
 
 #############################################
+
 # Creating Public Route Table Association:
+
 #############################################
 
 resource "aws_route_table_association" "public_rt_association" {
@@ -67,7 +79,9 @@ resource "aws_route_table_association" "public_rt_association" {
 }
 
 #############################################
+
 # Creating VPC FlowLogs:
+
 #############################################
 
 resource "aws_flow_log" "vpc_flow_log" {
@@ -79,8 +93,11 @@ resource "aws_flow_log" "vpc_flow_log" {
 }
 
 ##############################################
+
 # Creating CloudWatch Log Group:
+
 ##############################################
+
 resource "aws_cloudwatch_log_group" "cloudwatch_log_group" {
   name              = "VPC-FlowLogs-Group"
   retention_in_days = 30

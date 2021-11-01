@@ -1,6 +1,7 @@
 #####################################################
 # VPC Requirement
 #####################################################
+
 variable "custom_vpc" {
   description = "VPC for testing environment"
   type        = string
@@ -10,6 +11,7 @@ variable "custom_vpc" {
 #####################################################
 # EC2 Requirement
 #####################################################
+
 variable "instance_tenancy" {
   description = "it defines the tenancy of VPC. Whether it's defsult or dedicated"
   type        = string
@@ -28,15 +30,8 @@ variable "instance_type" {
   default     = "t2.micro"
 }
 
-variable "pvt_key_path" {
-  description = "Private key of EC2 instances"
+variable "ssh_private_key" {
+  description = "pem file of Keypair we used to login to EC2 instances"
   type        = string
-  default     = "~/.ssh/id_rsa"
+  default     = "./Keypair-01.pem"
 }
-
-variable "pub_key_path" {
-  description = "Public key of EC2 instances"
-  type        = string
-  default     = "~/.ssh/id_rsa.pub"
-}
-
