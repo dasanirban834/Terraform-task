@@ -1,0 +1,61 @@
+- name: Prechecks Before Patching
+  hosts: remote
+  become: true
+  gather_facts: yes
+  ignore_errors: no
+  tasks:
+      - name: "Host Name"
+        debug:
+            msg:
+                - Node_Details: "{{ ansible_nodename }}"
+      - name: "Network Details"
+        debug:
+            msg:
+                - Hostname: "{{ ansible_hostname }}"
+                - IPv4_Info: "{{ ansible_eth0.ipv4 }}"
+                - IPv6_Info: "{{ ansible_eth0.ipv6 }}"
+                - MAC_Address: "{{ ansible_eth0.macaddress }}"
+                - FQDN: "{{ ansible_fqdn }}"
+
+      - name: "OS Details"
+        debug:
+            msg:
+                - Distribution: "{{ ansible_distribution }}"
+                - OS_Family: "{{ ansible_os_family }}"
+                - Dist_Version: "{{ ansible_distribution_major_version }}"
+                - Kernel: "{{ ansible_kernel }}"
+                - Kernel_Version: "{{ ansible_kernel_version }}"
+                - Architecture: "{{ansible_architecture}}"
+                - BIOS_Date: "{{ansible_bios_date}}"
+                - BIOS_Version: "{{ansible_bios_version}}"
+                - BOOT_Image: "{{ansible_cmdline.BOOT_IMAGE}}"
+
+      - name: "CPU/Memory Details"
+        debug:
+            msg:
+                - Memory_total_mb: "{{ ansible_memfree_mb }}"
+                - Memory_free_mb: "{{ ansible_memfree_mb }}"
+                - Processors: "{{ ansible_processor }}"
+                - Processors_cores: "{{ ansible_processor_cores }}"
+                - Processors_counts: "{{ ansible_processor_count }}"
+                - vCPUs: "{{ ansible_processor_vcpus }}"
+                - product_version: "{{ ansible_product_version }}"
+
+      - name: "File System Details"
+        command: df -Th
+        register: file_system
+      - debug:
+            var: file_system.stdout
+
+      - name: "Storage Device Details"
+        command: lsblk -a
+        register: root_block
+      - debug:
+            var: root_block.stdout
+
+      - name: Packges to be Updated
+        command: yum check-update
+        register: package_tobe_updated
+
+      - debug:
+            var: package_tobe_updated.stdout

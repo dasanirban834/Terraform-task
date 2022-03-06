@@ -1,0 +1,4 @@
+[remote]
+172.31.85.194 ansible_user=ansible
+172.31.92.142 ansible_user=ansible
+172.31.89.181 ansible_user=ansible

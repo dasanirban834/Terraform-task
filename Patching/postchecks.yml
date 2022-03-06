@@ -1,0 +1,18 @@
+- name: Postchecks After Patching
+  hosts: remote
+  become: true
+  gather_facts: yes
+  ignore_errors: no
+  tasks:
+        - name: "OS Details"
+          debug:
+              msg:
+                - Distribution: "{{ ansible_distribution }}"
+                - OS_Family: "{{ ansible_os_family }}"
+                - Dist_Version: "{{ ansible_distribution_major_version }}"
+                - Kernel: "{{ ansible_kernel }}"
+                - Kernel_Version: "{{ ansible_kernel_version }}"
+                - Architecture: "{{ansible_architecture}}"
+                - BIOS_Date: "{{ansible_bios_date}}"
+                - BIOS_Version: "{{ansible_bios_version}}"
+                - BOOT_Image: "{{ansible_cmdline.BOOT_IMAGE}}"

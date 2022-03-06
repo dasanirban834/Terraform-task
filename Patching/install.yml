@@ -1,0 +1,20 @@
+---
+- name: Patch Linux system
+  hosts: remote
+  become: true
+  gather_facts: yes
+  tasks:
+      - name: "Patching Time"
+        debug:
+            msg:
+              - timestamp: "{{ ansible_date_time.iso8601_micro }}"
+        
+
+      - name: Apply patches
+        yum:
+             name: '*'
+             state: latest 
+        when: ansible_distribution == 'Amazon'
+        register: yum_update
+      - debug:
+            var: yum_update.stdout

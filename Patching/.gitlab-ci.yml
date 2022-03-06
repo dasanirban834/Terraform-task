@@ -1,0 +1,41 @@
+stages:
+ - Do_Prechecks
+ - Take_Snapshot
+ - Start_Patching
+ - Do_Postchecks
+
+Do_Prechecks:
+ stage: Do_Prechecks
+ script: 
+  - ansible-playbook -i hosts prechecks.yml
+ tags:
+  - gitlab-runner-test
+
+Take_Snapshot:
+ stage: Take_Snapshot
+ script:
+  - echo "Please start triggering snapshot .."
+  - chmod +x snapshot.sh
+  - sh snapshot.sh
+  - echo "Snapshots are taken and validated successfully !!"
+ tags:
+  - gitlab-runner-test
+
+Start_Patching:
+ stage: Start_Patching
+ script:
+  - ansible-playbook -i hosts install.yml
+ when: manual
+ tags:
+  - gitlab-runner-test
+
+Do_Postchecks:
+ stage: Do_Postchecks
+ script: 
+  - ansible-playbook -i hosts postchecks.yml
+ dependencies: 
+  - Start_Patching
+ when: manual
+ tags:
+  - gitlab-runner-test
+
