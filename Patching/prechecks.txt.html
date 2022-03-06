@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Courier New';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc0">Running with gitlab-runner 14.8.1 (6a42249e)
+  on gitlab-runner-for-test JeEq_JSN
+Preparing the "shell" executor
+00:00
+Using Shell executor...
+Preparing environment
+00:01
+Running on controller1.practice.in...
+Getting source from Git repository
+00:03
+Fetching changes with git depth set to 20...
+Reinitialized existing Git repository in /home/gitlab-runner/builds/JeEq_JSN/0/dasanirban834/patching/.git/
+Checking out 0e0a3117 as main...
+Skipping Git submodules setup
+Executing "step_script" stage of the job script
+01:54
+$ ansible-playbook -i hosts prechecks.yml
+PLAY [Prechecks Before Patching] ***********************************************
+TASK [Gathering Facts] *********************************************************
+[WARNING]: Platform linux on host 172.31.92.142 is using the discovered Python
+interpreter at /usr/bin/python, but future installation of another Python
+interpreter could change this. See https://docs.ansible.com/ansible/2.9/referen
+ce_appendices/interpreter_discovery.html for more information.
+ok: [172.31.92.142]
+[WARNING]: Platform linux on host 172.31.89.181 is using the discovered Python
+interpreter at /usr/bin/python, but future installation of another Python
+interpreter could change this. See https://docs.ansible.com/ansible/2.9/referen
+ce_appendices/interpreter_discovery.html for more information.
+ok: [172.31.89.181]
+[WARNING]: Platform linux on host 172.31.85.194 is using the discovered Python
+interpreter at /usr/bin/python, but future installation of another Python
+interpreter could change this. See https://docs.ansible.com/ansible/2.9/referen
+ce_appendices/interpreter_discovery.html for more information.
+ok: [172.31.85.194]
+TASK [Host Name] ***************************************************************
+ok: [172.31.85.194] =&gt; 
+  msg:
+  - Node_Details: host1.practice.in
+ok: [172.31.92.142] =&gt; 
+  msg:
+  - Node_Details: host2
+ok: [172.31.89.181] =&gt; 
+  msg:
+  - Node_Details: host3
+TASK [Network Details] *********************************************************
+ok: [172.31.85.194] =&gt; 
+  msg:
+  - Hostname: host1
+  - IPv4_Info:
+      address: 172.31.85.194
+      broadcast: 172.31.95.255
+      netmask: 255.255.240.0
+      network: 172.31.80.0
+  - IPv6_Info:
+    - address: fe80::10bf:eeff:fe1b:cf65
+      prefix: '64'
+      scope: link
+  - MAC_Address: 12:bf:ee:1b:cf:65
+  - FQDN: host1.practice.in
+ok: [172.31.89.181] =&gt; 
+  msg:
+  - Hostname: host3
+  - IPv4_Info:
+      address: 172.31.89.181
+      broadcast: 172.31.95.255
+      netmask: 255.255.240.0
+      network: 172.31.80.0
+  - IPv6_Info:
+    - address: fe80::102b:14ff:fe57:1f79
+      prefix: '64'
+      scope: link
+  - MAC_Address: 12:2b:14:57:1f:79
+  - FQDN: host3
+ok: [172.31.92.142] =&gt; 
+  msg:
+  - Hostname: host2
+  - IPv4_Info:
+      address: 172.31.92.142
+      broadcast: 172.31.95.255
+      netmask: 255.255.240.0
+      network: 172.31.80.0
+  - IPv6_Info:
+    - address: fe80::10f1:93ff:fe92:3b93
+      prefix: '64'
+      scope: link
+  - MAC_Address: 12:f1:93:92:3b:93
+  - FQDN: host2
+TASK [OS Details] **************************************************************
+ok: [172.31.92.142] =&gt; 
+  msg:
+  - Distribution: Amazon
+  - OS_Family: RedHat
+  - Dist_Version: '2'
+  - Kernel: 5.10.96-90.460.amzn2.x86_64
+  - Kernel_Version: '#1 SMP Fri Feb 4 17:12:04 UTC 2022'
+  - Architecture: x86_64
+  - BIOS_Date: 08/24/2006
+  - BIOS_Version: 4.2.amazon
+  - BOOT_Image: /boot/vmlinuz-5.10.96-90.460.amzn2.x86_64
+ok: [172.31.85.194] =&gt; 
+  msg:
+  - Distribution: Amazon
+  - OS_Family: RedHat
+  - Dist_Version: '2'
+  - Kernel: 4.14.262-200.489.amzn2.x86_64
+  - Kernel_Version: '#1 SMP Fri Feb 4 20:34:30 UTC 2022'
+  - Architecture: x86_64
+  - BIOS_Date: 08/24/2006
+  - BIOS_Version: 4.11.amazon
+  - BOOT_Image: /boot/vmlinuz-4.14.262-200.489.amzn2.x86_64
+ok: [172.31.89.181] =&gt; 
+  msg:
+  - Distribution: Amazon
+  - OS_Family: RedHat
+  - Dist_Version: '2'
+  - Kernel: 5.10.96-90.460.amzn2.x86_64
+  - Kernel_Version: '#1 SMP Fri Feb 4 17:12:04 UTC 2022'
+  - Architecture: x86_64
+  - BIOS_Date: 08/24/2006
+  - BIOS_Version: 4.11.amazon
+  - BOOT_Image: /boot/vmlinuz-5.10.96-90.460.amzn2.x86_64
+TASK [CPU/Memory Details] ******************************************************
+ok: [172.31.85.194] =&gt; 
+  msg:
+  - Memory_total_mb: 322
+  - Memory_free_mb: 322
+  - Processors:
+    - '0'
+    - GenuineIntel
+    - Intel(R) Xeon(R) CPU E5-2676 v3 @ 2.40GHz
+  - Processors_cores: 1
+  - Processors_counts: 1
+  - vCPUs: 1
+  - product_version: 4.11.amazon
+ok: [172.31.92.142] =&gt; 
+  msg:
+  - Memory_total_mb: 624
+  - Memory_free_mb: 624
+  - Processors:
+    - '0'
+    - GenuineIntel
+    - Intel(R) Xeon(R) CPU E5-2676 v3 @ 2.40GHz
+  - Processors_cores: 1
+  - Processors_counts: 1
+  - vCPUs: 1
+  - product_version: 4.2.amazon
+ok: [172.31.89.181] =&gt; 
+  msg:
+  - Memory_total_mb: 248
+  - Memory_free_mb: 248
+  - Processors:
+    - '0'
+    - GenuineIntel
+    - Intel(R) Xeon(R) CPU E5-2676 v3 @ 2.40GHz
+  - Processors_cores: 1
+  - Processors_counts: 1
+  - vCPUs: 1
+  - product_version: 4.11.amazon
+TASK [File System Details] *****************************************************
+changed: [172.31.92.142]
+changed: [172.31.89.181]
+changed: [172.31.85.194]
+TASK [debug] *******************************************************************
+ok: [172.31.85.194] =&gt; 
+  file_system.stdout: |-
+    Filesystem     Type      Size  Used Avail Use% Mounted on
+    devtmpfs       devtmpfs  482M     0  482M   0% /dev
+    tmpfs          tmpfs     492M     0  492M   0% /dev/shm
+    tmpfs          tmpfs     492M  412K  491M   1% /run
+    tmpfs          tmpfs     492M     0  492M   0% /sys/fs/cgroup
+    /dev/xvda1     xfs       8.0G  2.6G  5.5G  33% /
+    tmpfs          tmpfs      99M     0   99M   0% /run/user/1001
+ok: [172.31.92.142] =&gt; 
+  file_system.stdout: |-
+    Filesystem     Type      Size  Used Avail Use% Mounted on
+    devtmpfs       devtmpfs  475M     0  475M   0% /dev
+    tmpfs          tmpfs     483M     0  483M   0% /dev/shm
+    tmpfs          tmpfs     483M  400K  483M   1% /run
+    tmpfs          tmpfs     483M     0  483M   0% /sys/fs/cgroup
+    /dev/xvda1     xfs       8.0G  1.6G  6.5G  20% /
+    tmpfs          tmpfs      97M     0   97M   0% /run/user/1001
+ok: [172.31.89.181] =&gt; 
+  file_system.stdout: |-
+    Filesystem     Type      Size  Used Avail Use% Mounted on
+    devtmpfs       devtmpfs  475M     0  475M   0% /dev
+    tmpfs          tmpfs     483M     0  483M   0% /dev/shm
+    tmpfs          tmpfs     483M  400K  483M   1% /run
+    tmpfs          tmpfs     483M     0  483M   0% /sys/fs/cgroup
+    /dev/xvda1     xfs       8.0G  1.9G  6.2G  24% /
+    tmpfs          tmpfs      97M     0   97M   0% /run/user/1001
+TASK [Storage Device Details] **************************************************
+changed: [172.31.89.181]
+changed: [172.31.92.142]
+changed: [172.31.85.194]
+TASK [debug] *******************************************************************
+ok: [172.31.85.194] =&gt; 
+  root_block.stdout: |-
+    NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+    xvda    202:0    0   8G  0 disk
+    xvda1 202:1    0   8G  0 part /
+ok: [172.31.92.142] =&gt; 
+  root_block.stdout: |-
+    NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+    xvda    202:0    0   8G  0 disk
+    xvda1 202:1    0   8G  0 part /
+ok: [172.31.89.181] =&gt; 
+  root_block.stdout: |-
+    NAME    MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+    xvda    202:0    0   8G  0 disk
+    xvda1 202:1    0   8G  0 part /
+TASK [Packges to be Updated] ***************************************************
+[WARNING]: Consider using the yum module rather than running 'yum'.  If you
+need to use command because yum is insufficient you can add 'warn: false' to
+this command task or set 'command_warnings=False' in ansible.cfg to get rid of
+this message.
+changed: [172.31.92.142]
+changed: [172.31.89.181]
+changed: [172.31.85.194]
+TASK [debug] *******************************************************************
+ok: [172.31.85.194] =&gt; 
+  package_tobe_updated.stdout: 'Loaded plugins: extras_suggestions, langpacks, priorities, update-motd'
+ok: [172.31.92.142] =&gt; 
+  package_tobe_updated.stdout: 'Loaded plugins: extras_suggestions, langpacks, priorities, update-motd'
+ok: [172.31.89.181] =&gt; 
+  package_tobe_updated.stdout: 'Loaded plugins: extras_suggestions, langpacks, priorities, update-motd'
+PLAY RECAP *********************************************************************
+172.31.85.194              : ok=11   changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+172.31.89.181              : ok=11   changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+172.31.92.142              : ok=11   changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+Cleaning up project directory and file based variables
+00:01
+Job succeeded</span></div></body>
+</html>

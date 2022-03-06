@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Courier New';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc0">Running with gitlab-runner 14.8.1 (6a42249e)
+  on gitlab-runner-for-test JeEq_JSN
+Preparing the "shell" executor
+00:00
+Using Shell executor...
+Preparing environment
+00:01
+Running on controller1.practice.in...
+Getting source from Git repository
+00:03
+Fetching changes with git depth set to 20...
+Reinitialized existing Git repository in /home/gitlab-runner/builds/JeEq_JSN/0/dasanirban834/patching/.git/
+Checking out a69ebdbf as main...
+Skipping Git submodules setup
+Executing "step_script" stage of the job script
+07:26
+$ ansible-playbook -i hosts install.yml
+PLAY [Patch Linux system] ******************************************************
+TASK [Gathering Facts] *********************************************************
+[WARNING]: Platform linux on host 172.31.92.142 is using the discovered Python
+interpreter at /usr/bin/python, but future installation of another Python
+interpreter could change this. See https://docs.ansible.com/ansible/2.9/referen
+ce_appendices/interpreter_discovery.html for more information.
+ok: [172.31.92.142]
+[WARNING]: Platform linux on host 172.31.89.181 is using the discovered Python
+interpreter at /usr/bin/python, but future installation of another Python
+interpreter could change this. See https://docs.ansible.com/ansible/2.9/referen
+ce_appendices/interpreter_discovery.html for more information.
+ok: [172.31.89.181]
+[WARNING]: Platform linux on host 172.31.85.194 is using the discovered Python
+interpreter at /usr/bin/python, but future installation of another Python
+interpreter could change this. See https://docs.ansible.com/ansible/2.9/referen
+ce_appendices/interpreter_discovery.html for more information.
+ok: [172.31.85.194]
+TASK [Patching Time] ***********************************************************
+ok: [172.31.85.194]
+TASK [Apply patches] ***********************************************************
+changed: [172.31.92.142]
+changed: [172.31.89.181]
+changed: [172.31.85.194]</span></div></body>
+</html>

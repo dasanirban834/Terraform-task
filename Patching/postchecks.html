@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Courier New';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc0">Running with gitlab-runner 14.8.1 (6a42249e)
+  on gitlab-runner-for-test JeEq_JSN
+Preparing the "shell" executor
+00:00
+Using Shell executor...
+Preparing environment
+00:01
+Running on controller1.practice.in...
+Getting source from Git repository
+00:03
+Fetching changes with git depth set to 20...
+Reinitialized existing Git repository in /home/gitlab-runner/builds/JeEq_JSN/0/dasanirban834/patching/.git/
+Checking out 0e0a3117 as main...
+Skipping Git submodules setup
+Executing "step_script" stage of the job script
+00:52
+$ ansible-playbook -i hosts postchecks.yml
+PLAY [Postchecks After Patching] ***********************************************
+TASK [Gathering Facts] *********************************************************
+[WARNING]: Platform linux on host 172.31.92.142 is using the discovered Python
+interpreter at /usr/bin/python, but future installation of another Python
+interpreter could change this. See https://docs.ansible.com/ansible/2.9/referen
+ce_appendices/interpreter_discovery.html for more information.
+ok: [172.31.92.142]
+[WARNING]: Platform linux on host 172.31.89.181 is using the discovered Python
+interpreter at /usr/bin/python, but future installation of another Python
+interpreter could change this. See https://docs.ansible.com/ansible/2.9/referen
+ce_appendices/interpreter_discovery.html for more information.
+ok: [172.31.89.181]
+[WARNING]: Platform linux on host 172.31.85.194 is using the discovered Python
+interpreter at /usr/bin/python, but future installation of another Python
+interpreter could change this. See https://docs.ansible.com/ansible/2.9/referen
+ce_appendices/interpreter_discovery.html for more information.
+ok: [172.31.85.194]
+TASK [OS Details] **************************************************************
+ok: [172.31.85.194] =&gt; 
+  msg:
+  - Distribution: Amazon
+  - OS_Family: RedHat
+  - Dist_Version: '2'
+  - Kernel: 4.14.262-200.489.amzn2.x86_64
+  - Kernel_Version: '#1 SMP Fri Feb 4 20:34:30 UTC 2022'
+  - Architecture: x86_64
+  - BIOS_Date: 08/24/2006
+  - BIOS_Version: 4.11.amazon
+  - BOOT_Image: /boot/vmlinuz-4.14.262-200.489.amzn2.x86_64
+ok: [172.31.92.142] =&gt; 
+  msg:
+  - Distribution: Amazon
+  - OS_Family: RedHat
+  - Dist_Version: '2'
+  - Kernel: 5.10.96-90.460.amzn2.x86_64
+  - Kernel_Version: '#1 SMP Fri Feb 4 17:12:04 UTC 2022'
+  - Architecture: x86_64
+  - BIOS_Date: 08/24/2006
+  - BIOS_Version: 4.2.amazon
+  - BOOT_Image: /boot/vmlinuz-5.10.96-90.460.amzn2.x86_64
+ok: [172.31.89.181] =&gt; 
+  msg:
+  - Distribution: Amazon
+  - OS_Family: RedHat
+  - Dist_Version: '2'
+  - Kernel: 5.10.96-90.460.amzn2.x86_64
+  - Kernel_Version: '#1 SMP Fri Feb 4 17:12:04 UTC 2022'
+  - Architecture: x86_64
+  - BIOS_Date: 08/24/2006
+  - BIOS_Version: 4.11.amazon
+  - BOOT_Image: /boot/vmlinuz-5.10.96-90.460.amzn2.x86_64
+PLAY RECAP *********************************************************************
+172.31.85.194              : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+172.31.89.181              : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+172.31.92.142              : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+Cleaning up project directory and file based variables
+00:01
+Job succeeded</span></div></body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Courier New';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc0">Running with gitlab-runner 14.8.1 (6a42249e)
+  on gitlab-runner-for-test JeEq_JSN
+Preparing the "shell" executor
+00:00
+Using Shell executor...
+Preparing environment
+00:01
+Running on controller1.practice.in...
+Getting source from Git repository
+00:02
+Fetching changes with git depth set to 20...
+Reinitialized existing Git repository in /home/gitlab-runner/builds/JeEq_JSN/0/dasanirban834/patching/.git/
+Checking out 0e0a3117 as main...
+Skipping Git submodules setup
+Executing "step_script" stage of the job script
+01:05
+$ echo "Please start triggering snapshot .."
+Please start triggering snapshot ..
+$ chmod +x snapshot.sh
+$ sh snapshot.sh
+Taking Pre-Patching Snapshot of VolumeID: vol-0b35b9ed5569f4eae
+{
+    "Description": "",
+    "Encrypted": false,
+    "OwnerId": "561681717528",
+    "Progress": "",
+    "SnapshotId": "snap-00ece4630dd6bab46",
+    "StartTime": "2022-03-06T12:06:16.068000+00:00",
+    "State": "pending",
+    "VolumeId": "vol-0b35b9ed5569f4eae",
+    "VolumeSize": 8,
+    "Tags": []
+}
+Taking Pre-Patching Snapshot of VolumeID: vol-03efc7ba00eb1488e
+{
+    "Description": "",
+    "Encrypted": false,
+    "OwnerId": "561681717528",
+    "Progress": "",
+    "SnapshotId": "snap-09ee85a7d051af085",
+    "StartTime": "2022-03-06T12:06:37.167000+00:00",
+    "State": "pending",
+    "VolumeId": "vol-03efc7ba00eb1488e",
+    "VolumeSize": 8,
+    "Tags": []
+}
+Taking Pre-Patching Snapshot of VolumeID: vol-0ac738d0953101894
+{
+    "Description": "",
+    "Encrypted": false,
+    "OwnerId": "561681717528",
+    "Progress": "",
+    "SnapshotId": "snap-06fdc64e93047f050",
+    "StartTime": "2022-03-06T12:06:58.411000+00:00",
+    "State": "pending",
+    "VolumeId": "vol-0ac738d0953101894",
+    "VolumeSize": 8,
+    "Tags": []
+}
+$ echo "Snapshots are taken and validated successfully !!"
+Snapshots are taken and validated successfully !!
+Cleaning up project directory and file based variables
+00:01
+Job succeeded</span></div></body>
+</html>
